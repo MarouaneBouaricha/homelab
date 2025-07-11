@@ -5,7 +5,7 @@ variable "cluster_name" {
 
 variable "default_gateway" {
   type    = string
-  default = "192168.1.1"
+  default = "192.168.1.1"
 }
 
 variable "talos_cp_01_ip_addr" {
