@@ -2,7 +2,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
   name        = "talos-cp-01"
   description = "Managed by Terraform"
   tags        = ["terraform"]
-  node_name   = "192.168.1.201"
+  node_name   = "server1"
   on_boot     = true
 
   cpu {
@@ -23,7 +23,7 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
   }
 
   disk {
-    datastore_id = "local-zfs"
+    datastore_id = "VMs-Storage"
     file_id      = proxmox_virtual_environment_download_file.talos_nocloud_image.id
     file_format  = "raw"
     interface    = "virtio0"
@@ -35,14 +35,11 @@ resource "proxmox_virtual_environment_vm" "talos_cp_01" {
   }
 
   initialization {
-    datastore_id = "local-zfs"
+    datastore_id = "VMs-Storage"
     ip_config {
       ipv4 {
         address = "${var.talos_cp_01_ip_addr}/24"
         gateway = var.default_gateway
-      }
-      ipv6 {
-        address = "dhcp"
       }
     }
   }
@@ -53,7 +50,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   name        = "talos-worker-01"
   description = "Managed by Terraform"
   tags        = ["terraform"]
-  node_name   = "<your proxmox node>"
+  node_name   = "server1"
   on_boot     = true
 
   cpu {
@@ -74,7 +71,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   }
 
   disk {
-    datastore_id = "local-zfs"
+    datastore_id = "VMs-Storage"
     file_id      = proxmox_virtual_environment_download_file.talos_nocloud_image.id
     file_format  = "raw"
     interface    = "virtio0"
@@ -86,14 +83,11 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
   }
 
   initialization {
-    datastore_id = "local-zfs"
+    datastore_id = "VMs-Storage"
     ip_config {
       ipv4 {
         address = "${var.talos_worker_01_ip_addr}/24"
         gateway = var.default_gateway
-      }
-      ipv6 {
-        address = "dhcp"
       }
     }
   }
