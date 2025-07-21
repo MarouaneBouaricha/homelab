@@ -29,3 +29,7 @@ variable "datastore_name" {
 variable "proxmox_vms_default_gateway" {
   type = string
 }
+
+variable "metallb_pool_addresses" {
+  type = string
+}
