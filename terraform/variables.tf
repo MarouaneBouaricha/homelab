@@ -1,19 +1,31 @@
-variable "cluster_name" {
-  type    = string
-  default = "homelab"
+variable "proxmox_node_name" {
+  type = string
+}
+variable "proxmox_admin_endpoint" {
+  type = string
+}
+variable "proxmox_username" {
+  type = string
+}
+variable "proxmox_password" {
+  type = string
+}
+variable "proxmox_insecure" {
+  type    = bool
+  default = false
+}
+variable "proxmox_vms_talos" {
+  type = map(object({
+    id         = number
+    ip         = string
+    controller = optional(bool)
+  }))
 }
 
-variable "default_gateway" {
-  type    = string
-  default = "192.168.1.1"
+variable "datastore_name" {
+  type = string
 }
 
-variable "talos_cp_01_ip_addr" {
-  type    = string
-  default = "192.168.1.31"
-}
-
-variable "talos_worker_01_ip_addr" {
-  type    = string
-  default = "192.168.1.32"
+variable "proxmox_vms_default_gateway" {
+  type = string
 }
