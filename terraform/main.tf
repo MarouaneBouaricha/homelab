@@ -13,3 +13,15 @@ module "proxmox_talos" {
 
   talos_cluster_name = "k8s-dev"
 }
+
+module "metallb" {
+  source = "./modules/metallb"
+
+  kube_host = module.proxmox_talos.kube_client_config.host
+  kube_cluster_ca_certificate = module.proxmox_talos.kube_client_config.ca_certificate
+  kube_client_key = module.proxmox_talos.kube_client_config.client_key
+  kube_client_certificate = module.proxmox_talos.kube_client_config.client_certificate
+
+  metallb_version = "0.15.2"
+  metallb_pool_addresses = var.metallb_pool_addresses 
+}
