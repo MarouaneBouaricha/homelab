@@ -23,7 +23,7 @@ locals {
 // ==============================================================================
 
 locals {
-  patch_base_path = "${path.module}/patches"
+  patch_base_path = "../${path.module}/talos/patches"
 
   common_patch_files     = fileset("${local.patch_base_path}/common", "*.yaml")
   worker_patch_files     = fileset("${local.patch_base_path}/worker", "*.yaml")
