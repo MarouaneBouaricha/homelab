@@ -61,9 +61,15 @@ variable "talos_version" {
 }
 
 variable "talos_qemu_iscsi_hash" {
-  description = "SHA256 hash of the Talos Linux image for QEMU/ISCSI."
+  description = "The Talos Linux image schematic ID."
   type        = string
   default     = "dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586"
+}
+
+variable "talos_img_hash" {
+  description = "SHA256 hash of the Talos Linux image"
+  type = string
+  default = "c9cf59861cdc23140374d3f1a8b6054a3bfd2dcbabf115e352b9523d8c9a8395"
 }
 
 locals {
@@ -140,7 +146,7 @@ variable "controller_config" {
   default = {
     count          = 1
     cpu            = 2
-    memory         = 1024 * 4
+    memory         = 1024 * 6
 
     os_disk = {
       size      = 20
