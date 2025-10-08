@@ -6,11 +6,15 @@ resource "proxmox_virtual_environment_download_file" "talos_nocloud_image" {
   content_type            = "iso"
   datastore_id            = "local"
   node_name               = var.proxmox_node_name
-  file_name               = local.talos_image_filename
+  file_name               = "talos-${var.talos_version}-nocloud-amd64.img"
   url                     = local.talos_image_url
   decompression_algorithm = "gz"
-  overwrite               = true
+  overwrite               = false
   overwrite_unmanaged     = true
+
+  checksum           = var.talos_img_hash
+  checksum_algorithm = "sha256"
+  
 }
 
 // ==============================================================================
@@ -19,7 +23,6 @@ resource "proxmox_virtual_environment_download_file" "talos_nocloud_image" {
 
 resource "proxmox_virtual_environment_vm" "control_plane" {
   count           = var.controller_config.count
-  vm_id           = count.index + 150
   name            = "${var.prefix}-${local.controller_nodes[count.index].name}"
   tags            = sort(["talos", "control_plane", "terraform"])
   stop_on_destroy = true
