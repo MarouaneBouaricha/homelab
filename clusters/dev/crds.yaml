@@ -9,6 +9,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: https://github.com/traefik/traefik-helm-chart/traefik-crds 
+  path: https://github.com/traefik/traefik-helm-chart/tree/master/traefik-crds 
   prune: true
   wait: true
