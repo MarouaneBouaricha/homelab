@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: traefik-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: https://github.com/traefik/traefik-helm-chart.git
+  ref:
+    branch: master
