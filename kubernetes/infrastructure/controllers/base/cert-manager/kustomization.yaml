@@ -6,3 +6,4 @@ resources:
 - helmrelease.yaml
 - repository.yaml
 - issuers/letsencrypt.yaml
+- issuers/self-singed.yaml
