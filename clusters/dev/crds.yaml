@@ -9,6 +9,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ../../../kubernetes/crds/prod
+  path: ../../../kubernetes/crds/prod/traefik-proxy
   prune: true
   wait: true
