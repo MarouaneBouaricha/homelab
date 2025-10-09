@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-  - name: crds
+  - name: traefik-crds
   - name: sources
   interval: 1h
   retryInterval: 5m
