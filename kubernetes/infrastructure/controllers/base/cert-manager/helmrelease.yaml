@@ -5,28 +5,21 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  interval: 30m
   chart:
     spec:
       chart: cert-manager
-      version: "v1.15.x"
+      reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: jetstack
+        name: cert-manager
         namespace: flux-system
-  targetNamespace: cert-manager
+      version: 1.12.x
   install:
-    crds: Create
     createNamespace: true
-  upgrade:
-    crds: CreateReplace
+  interval: 1m0s
+  releaseName: cert-manager
+  storageNamespace: cert-manager
+  targetNamespace: cert-manager
   values:
-    installCRDs: true
-    # Recommended for production
-    replicaCount: 1
-    resources:
-      requests:
-        cpu: 10m
-        memory: 32Mi
-      limits:
-        memory: 128Mi
+    crds:
+      enabled: true
