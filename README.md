@@ -5,10 +5,6 @@ This is a monorepo for the cluster that lives on my desk, which I called
 `Atlas`. It uses [Flux](https://fluxcd.io) to deploy services from this
 repository into my cluster.
 
-It automatically updates itself over time using
-[Renovate](https://docs.renovatebot.com/), and tests pull requests for those
-updates using [GitHub Actions](https://github.com/features/actions).
-
 ---
 
 ## Kubernetes
