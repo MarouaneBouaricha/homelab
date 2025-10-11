@@ -3,10 +3,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: homelab-ingress
-  namespace: ingress
+  namespace: default
   annotations:
-    # Specify the ingress class
-    kubernetes.io/ingress.class: nginx
     # Enable cert-manager to create certificates
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # Optional: Force HTTPS redirect
@@ -14,6 +12,7 @@ metadata:
     # Optional: SSL protocols
     nginx.ingress.kubernetes.io/ssl-protocols: "TLSv1.2 TLSv1.3"
 spec:
+  ingressClassName: traefik-proxy
   tls:
   - hosts:
     - happybit.qzz.io
@@ -26,6 +25,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: simple-service
+            name: simple-app
             port:
               number: 80
