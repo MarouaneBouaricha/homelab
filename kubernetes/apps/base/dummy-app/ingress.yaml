@@ -16,7 +16,7 @@ spec:
   tls:
   - hosts:
     - happybit.qzz.io
-    secretName: homelab-tls  # cert-manager will create this secret
+    secretName: homelab-tls-8qnq9  # cert-manager will create this secret
   rules:
   - host: happybit.qzz.io  
     http:
