@@ -9,14 +9,12 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # Optional: Force HTTPS redirect
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    # Optional: SSL protocols
-    nginx.ingress.kubernetes.io/ssl-protocols: "TLSv1.2 TLSv1.3"
 spec:
   ingressClassName: traefik-proxy
   tls:
-  - hosts:
-    - happybit.qzz.io
-    secretName: homelab-tls-8qnq9  # cert-manager will create this secret
+    - hosts:
+        - happybit.qzz.io
+      secretName: homelab-tls  # cert-manager will create this secret
   rules:
   - host: happybit.qzz.io  
     http:
