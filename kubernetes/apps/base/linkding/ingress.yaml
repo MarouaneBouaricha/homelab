@@ -9,6 +9,7 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # Optional: Force HTTPS redirect
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kuberntees.io/rewrite-target: /
 spec:
   ingressClassName: traefik-proxy
   tls:
