@@ -17,23 +17,21 @@ spec:
         - happybit.qzz.io
       secretName: homelab-tls  # cert-manager will create this secret
   rules:
-  - host: linkding.happybit.qzz.io  
+  - host: happybit.qzz.io  
     http:
       paths:
-      - path: /
+      - path: /linkding
         pathType: Prefix
         backend:
           service:
             name: linkding-service
             port:
               number: 9090
-  - host: dummy.happybit.qzz.io  
-    http:
-      paths:
-      - path: /
+      - path: /dummy
         pathType: Prefix
         backend:
           service:
             name: simple-app
             port:
               number: 80
+      
