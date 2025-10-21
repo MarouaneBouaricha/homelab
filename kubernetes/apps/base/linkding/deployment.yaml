@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: linkding-deployment
+  name: linkding-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkding-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: linkding-deployment
+    spec:
+      containers:
+      - image: sissbruecker/linkding:latest
+        name: linkding-container
+        resources: {}
+status: {}
