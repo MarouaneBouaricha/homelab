@@ -10,6 +10,7 @@ metadata:
     # Optional: Force HTTPS redirect
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-strip-prefix@kubernetescrd
 spec:
   ingressClassName: traefik-proxy
   tls:
