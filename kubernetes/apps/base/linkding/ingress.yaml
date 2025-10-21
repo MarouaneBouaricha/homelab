@@ -8,8 +8,9 @@ metadata:
     # Enable cert-manager to create certificates
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # Optional: Force HTTPS redirect
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kuberntees.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-strip-prefix@kubernetescrd
 spec:
   ingressClassName: traefik-proxy
   tls:
