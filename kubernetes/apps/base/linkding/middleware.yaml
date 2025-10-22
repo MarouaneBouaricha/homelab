@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: linkding-stripPrefix
+  name: linkding-stripprefix
 spec:
   stripPrefix:
     prefixes:
@@ -14,4 +14,4 @@ metadata:
 spec:
   chain:
     middlewares:
-      - name: linkding-stripPrefix
+      - name: linkding-stripprefix
