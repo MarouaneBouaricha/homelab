@@ -4,3 +4,4 @@ resources:
   - ./base/longhorn
   - ./base/cert-manager
   - ./base/traefik-proxy
+  - ./base/cloudnative-pg
