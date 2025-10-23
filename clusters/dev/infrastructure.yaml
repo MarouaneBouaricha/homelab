@@ -14,6 +14,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ../../kubernetes/infrastructure/controllers
+  path: ../../kubernetes/infrastructure/controllers/dev
   prune: true
   wait: true
