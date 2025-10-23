@@ -5,5 +5,3 @@ namespace: traefik-system
 resources:
 - namespace.yaml
 - helmrelease.yaml
-configurations:
-- kustomizeconfig.yaml

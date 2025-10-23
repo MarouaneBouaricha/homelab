@@ -11,11 +11,6 @@ spec:
         kind: HelmRepository
         name: traefik-proxy
         namespace: flux-system
-  valuesFrom:
-  - kind: ConfigMap
-    name: traefik-values
-    valuesKey: values.yaml
-    optional: true
   interval: 1h
   releaseName: traefik-proxy
   targetNamespace: traefik-system
