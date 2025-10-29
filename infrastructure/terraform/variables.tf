@@ -63,7 +63,7 @@ variable "talos_version" {
 variable "talos_qemu_iscsi_hash" {
   description = "The Talos Linux image schematic ID."
   type        = string
-  default     = "dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586"
+  default     = "4a0d65c669d46663f377e7161e50cfd570c401f26fd9e7bda34a0216b6f1922b"
 }
 
 variable "talos_img_hash" {

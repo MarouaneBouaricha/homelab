@@ -12,8 +12,8 @@ resource "proxmox_virtual_environment_download_file" "talos_nocloud_image" {
   overwrite               = false
   overwrite_unmanaged     = true
 
-  checksum           = var.talos_img_hash
-  checksum_algorithm = "sha256"
+  # checksum           = var.talos_img_hash
+  # checksum_algorithm = "sha256"
   
 }
 

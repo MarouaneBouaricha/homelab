@@ -28,6 +28,7 @@ locals {
   common_patch_files     = fileset("${local.patch_base_path}/common", "*.yaml")
   worker_patch_files     = fileset("${local.patch_base_path}/worker", "*.yaml")
   controller_patch_files = fileset("${local.patch_base_path}/controller", "*.yaml")
+  tailescale_patch_files  = fileset("${local.patch_base_path}/tailescale", "*.yaml")
 
   shared_patches = [
     for f in local.common_patch_files :
@@ -42,19 +43,26 @@ locals {
   controller_patches = [
     for f in local.controller_patch_files :
     yamlencode(yamldecode(templatefile("${local.patch_base_path}/controller/${f}", {
-      cluster_vip = var.cluster_vip,
+      cluster_vip              = var.cluster_vip,
       load_balancer_first_host = cidrhost(var.cluster_node_network, var.load_balancer_ip_range.first),
       load_balancer_last_host  = cidrhost(var.cluster_node_network, var.load_balancer_ip_range.last)
     })))
   ]
 
+  tailescale_patches = [
+    for f in local.tailescale_patch_files :
+    yamlencode(yamldecode(file("${local.patch_base_path}/tailescale/${f}")))
+  ]
+
   config_patches_worker = concat(
     local.shared_patches,
-    local.worker_patches
+    local.worker_patches,
+    local.tailescale_patches
   )
 
   config_patches_controller = concat(
     local.shared_patches,
     local.controller_patches,
+    local.tailescale_patches
   )
 }
