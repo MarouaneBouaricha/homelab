@@ -14,3 +14,9 @@ spec:
         name: longhorn-repo
       version: v1.10.0
   interval: 1m0s
+  values:
+    defaultSettings:
+      defaultReplicaCount: "1"
+    persistence:
+      defaultClassReplicaCount: 1
+      reclaimPolicy: Retain
