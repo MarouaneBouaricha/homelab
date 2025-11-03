@@ -57,13 +57,13 @@ variable "proxmox_network_bridge" {
 variable "talos_version" {
   description = "Talos Linux version."
   type        = string
-  default     = "v1.9.5"
+  default     = "v1.11.3"
 }
 
 variable "talos_qemu_iscsi_hash" {
   description = "The Talos Linux image schematic ID."
   type        = string
-  default     = "4a0d65c669d46663f377e7161e50cfd570c401f26fd9e7bda34a0216b6f1922b"
+  default     = "077514df2c1b6436460bc60faabc976687b16193b8a1290fda4366c69024fec2"
 }
 
 variable "talos_img_hash" {
