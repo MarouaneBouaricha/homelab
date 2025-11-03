@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-kuma
+  labels:
+    app: uptime-kuma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uptime-kuma
+  template:
+    metadata:
+      labels:
+        app: uptime-kuma
+    spec:
+      containers:
+      - name: uptime-kuma
+        image: louislam/uptime-kuma
+        ports:
+        - containerPort: 3001
+        volumeMounts: # Volume must be created along with volumeMount (see next below)
+        - name: uptime-kuma-data
+          mountPath: /app/data # Path within the container, like the right side of a docker bind mount -- /tmp/data:/app/data
+      volumes: # Defines a volume that uses an existing PVC (see next below)
+      - name: uptime-kuma-data
+        persistentVolumeClaim:
+          claimName: uptime-kuma-pvc
