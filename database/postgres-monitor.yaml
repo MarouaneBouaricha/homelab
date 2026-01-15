@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: cluster-with-metrics
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  namespaceSelector:
+    matchNames:
+      - "database"
+  selector:
+    matchLabels:
+      cnpg.io/cluster: atlas-db-cluster
+  podMetricsEndpoints:
+  - port: metrics
