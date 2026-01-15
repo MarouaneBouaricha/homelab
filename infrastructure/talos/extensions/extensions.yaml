@@ -3,5 +3,5 @@ customization:
         officialExtensions:
             - siderolabs/tailscale
             - siderolabs/qemu-guest-agent
-            - siderolabs/tailscale
+            - siderolabs/iscsi-tools
             - siderolabs/util-linux-tools
