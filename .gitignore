@@ -84,3 +84,9 @@ helpers/foundation-deployer/.steps.json
 
 # Go multi-module workspace sum
 go.work.sum
+
+# Terraform backend configuration (contains sensitive / account-specific values)
+backend-config.hcl
+
+# Kilo planning artifacts
+.kilo/
