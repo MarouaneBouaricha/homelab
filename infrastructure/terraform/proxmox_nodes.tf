@@ -52,6 +52,7 @@ resource "proxmox_virtual_environment_vm" "control_plane" {
     file_format  = "raw"
     interface    = "virtio0"
     size         = var.controller_config.os_disk.size
+    discard      = "on"
   }
 
   operating_system {
@@ -104,6 +105,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
     file_id      = proxmox_virtual_environment_download_file.talos_nocloud_image.id
     file_format  = "raw"
     size         = var.worker_config.os_disk.size
+    discard      = "on"
   }
   #
   # Data disk for longhorn SCI
@@ -112,6 +114,7 @@ resource "proxmox_virtual_environment_vm" "talos_worker_01" {
     interface    = "scsi1"
     file_format  = "raw"
     size         = var.worker_config.longhorn_disk.size
+    discard      = "on"
   }
 
   operating_system {
